@@ -15,9 +15,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^7.9.1",
     "react-top-loading-bar": "^3.0.2",
-    "web-vitals": "^2.1.4"
-  },
-  "devDependencies": {
+    "web-vitals": "^2.1.4",
     "@vitejs/plugin-react": "^4.3.4",
     "vite": "^6.0.3"
   },
