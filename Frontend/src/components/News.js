@@ -9,17 +9,17 @@ const News = ({ country='us' , pageSize='8', category='general' , mode, setProgr
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-
+  const URL=import.meta.env.VITE_API_KEY
   // 🔹 Fetch initial data on mount or when category/country changes
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       setProgress(10);
       
-
+    
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}`
+          `${URL}?country=${country}&category=${category}&page=${page}&pageSize=${pageSize}`
         );
         setProgress(30);
         const data = await response.json();
@@ -44,7 +44,7 @@ const News = ({ country='us' , pageSize='8', category='general' , mode, setProgr
     setLoading(true);
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}?country=${country}&category=${category}&page=${nextPage}&pageSize=${pageSize}`
+        `${URL}?country=${country}&category=${category}&page=${nextPage}&pageSize=${pageSize}`
       );
       const data = await response.json();
       setArticles((prevArticles) => prevArticles.concat(data.articles || []));
